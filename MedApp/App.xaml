@@ -1,0 +1,131 @@
+﻿<Application x:Class="MedApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MedApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#2E2E2E" />
+            <Setter Property="MaxWidth" Value="800" />
+            <Setter Property="MaxHeight" Value="30" />
+            <Setter Property="MinWidth" Value="20" />
+        </Style>
+
+        <Style x:Key="TextBoxOpacite" TargetType="TextBox">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="MaxWidth" Value="800" />
+            <Setter Property="MaxHeight" Value="30" />
+            <Setter Property="MinWidth" Value="20" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="MaxWidth" Value="800" />
+            <Setter Property="MaxHeight" Value="30" />
+            <Setter Property="MinWidth" Value="20" />
+            <Style.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+
+        <Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#2E2E2E" />
+            <Setter Property="MaxWidth" Value="800" />
+            <Setter Property="MaxHeight" Value="30" />
+            <Setter Property="MinWidth" Value="20" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="LightGreen" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="21" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="MaxWidth" Value="400" />
+            <Setter Property="MaxHeight" Value="50" />
+            <Setter Property="MinWidth" Value="20" />
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" FontWeight="Bold" Foreground="White" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="MaxHeight" Value="75" />
+            <Setter Property="MaxWidth" Value="900" />
+            <Setter Property="MinWidth" Value="20" />
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="#00513f" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#4DA64D" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="GridView.ColumnHeaderContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                        <Setter Property="Background" Value="#4DA64D" />
+                        <Setter Property="BorderBrush" Value="#357A35" />
+                        <Setter Property="BorderThickness" Value="0,0,1,1" />
+                        <Setter Property="Padding" Value="6,3" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <!-- Добавлен Setter для свойства Background -->
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border x:Name="border" Background="Transparent">
+                                        <Border x:Name="roundedBorder" Padding="4" Margin="2" Background="{TemplateBinding Background}" BorderBrush="#4DA64D" BorderThickness="1" CornerRadius="4">
+                                            <GridViewRowPresenter Content="{TemplateBinding Content}" />
+                                        </Border>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="roundedBorder" Property="Background" Value="#8ABD8A" />
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="roundedBorder" Property="Background" Value="#6ED46E" />
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Background" Value="#6ED46E" />
+                        <!-- Добавлен Setter для свойства Background -->
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

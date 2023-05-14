@@ -1,0 +1,45 @@
+﻿<Page x:Class="MedApp.Pages.FindDoctorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MedApp.Pages"
+      xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif" xmlns:local1="clr-namespace:MedApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FindDoctorPage">
+
+    <Grid>
+
+        <Image gif:AnimationBehavior.SourceUri="/asets/ezgif-2-df9af7a089.gif" Stretch="Fill"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <GroupBox Header="Поиск">
+                    <TextBox x:Name="SearchTextBox" Width="400" TextChanged="SearchTextBox_TextChanged"/>
+                </GroupBox>
+            </StackPanel>
+
+            <ListView x:Name="findDoctorLv" MouseDoubleClick="findDoctorLv_MouseDoubleClick" Grid.Column="1" Grid.Row="1" Width="600">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Users.FirstName}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Users.LastName}"/>
+                        <GridViewColumn Header="Специализация" DisplayMemberBinding="{Binding Specialization.name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

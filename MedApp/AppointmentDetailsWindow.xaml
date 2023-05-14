@@ -1,0 +1,39 @@
+﻿<Window x:Class="MedApp.AppointmentDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedApp"
+        mc:Ignorable="d"
+        Title="Детализация" Height="200" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/asets/free-icon-medical-record-967173.png">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/asets/tekstura-green.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            <GroupBox Header="Изменить дату и время приёма" Width="250">
+                <local:DateTimePicker x:Name="AppointmentDateTimePicker"/>
+            </GroupBox>
+
+            <Button Content="Сохранить" Grid.Column="1" Name="SaveDateTimeBtn" Click="SaveDateTimeBtn_Click" />
+
+        </Grid>
+        
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <Button x:Name="cancelBtn" Click="CancelBtn_Click" Content="Отменить" Margin="10" Padding="10"/>
+            <Button x:Name="addBtn" Click="AddBtn_Click" Content="Запланировать" Margin="10" Padding="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
