@@ -103,11 +103,20 @@
     <Compile Include="Pages\FindDoctorPage.xaml.cs">
       <DependentUpon>FindDoctorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LabTestPage.xaml.cs">
+      <DependentUpon>LabTestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PatientAppointmentsPage.xaml.cs">
       <DependentUpon>PatientAppointmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PatientProfilePage.xaml.cs">
       <DependentUpon>PatientProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PrescriptionsPage.xaml.cs">
+      <DependentUpon>PrescriptionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrescriptionDetailsWindow.xaml.cs">
+      <DependentUpon>PrescriptionDetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
@@ -151,6 +160,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\LabTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PatientAppointmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +173,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PrescriptionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrescriptionDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

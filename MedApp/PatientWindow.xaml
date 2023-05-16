@@ -26,6 +26,14 @@
                 <Frame x:Name="diseasesFrame"/>
             </TabItem>
 
+            <TabItem Header="Мои рецепты">
+                <Frame x:Name="prescriptionsFrame"/>
+            </TabItem>
+
+            <TabItem Header="Мои анализы">
+                <Frame x:Name="labTestsFrame"/>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

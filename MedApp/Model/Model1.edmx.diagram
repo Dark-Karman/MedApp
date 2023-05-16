@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4ec60167738946b3ad197efc9461ee81" Name="Diagram1">
-        <EntityTypeShape EntityType="MedAppDBModel.Appointments" Width="1.5" PointX="8.25" PointY="5.5" />
-        <EntityTypeShape EntityType="MedAppDBModel.Diseases" Width="1.5" PointX="3" PointY="13.75" />
-        <EntityTypeShape EntityType="MedAppDBModel.Doctors" Width="1.5" PointX="3" PointY="5.375" />
-        <EntityTypeShape EntityType="MedAppDBModel.LabTests" Width="1.5" PointX="6" PointY="12.75" />
-        <EntityTypeShape EntityType="MedAppDBModel.PatientDiseases" Width="1.5" PointX="5.25" PointY="9.5" />
-        <EntityTypeShape EntityType="MedAppDBModel.PatientLabTests" Width="1.5" PointX="8.25" PointY="9.5" />
-        <EntityTypeShape EntityType="MedAppDBModel.Patients" Width="1.5" PointX="3" PointY="9.25" />
-        <EntityTypeShape EntityType="MedAppDBModel.Prescriptions" Width="1.5" PointX="5.25" PointY="5.375" />
-        <EntityTypeShape EntityType="MedAppDBModel.Specialization" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="MedAppDBModel.Status" Width="1.5" PointX="6" PointY="3" />
+        <EntityTypeShape EntityType="MedAppDBModel.Appointments" Width="1.5" PointX="8.25" PointY="5.625" />
+        <EntityTypeShape EntityType="MedAppDBModel.Diseases" Width="1.5" PointX="6" PointY="12.875" />
+        <EntityTypeShape EntityType="MedAppDBModel.Doctors" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="MedAppDBModel.LabTests" Width="1.5" PointX="3" PointY="13.875" />
+        <EntityTypeShape EntityType="MedAppDBModel.PatientDiseases" Width="1.5" PointX="8.25" PointY="9.625" />
+        <EntityTypeShape EntityType="MedAppDBModel.PatientLabTests" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="MedAppDBModel.Patients" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="MedAppDBModel.Prescriptions" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="MedAppDBModel.Specialization" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="MedAppDBModel.Status" Width="1.5" PointX="6" PointY="3.125" />
         <EntityTypeShape EntityType="MedAppDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MedAppDBModel.Users" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="MedAppDBModel.Users" Width="1.5" PointX="0.75" PointY="6.375" />
         <AssociationConnector Association="MedAppDBModel.FK__Appointme__Docto__2E1BDC42" />
         <AssociationConnector Association="MedAppDBModel.FK__Appointme__Patie__2F10007B" />
         <AssociationConnector Association="MedAppDBModel.FK_Appointments_Status" />

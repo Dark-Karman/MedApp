@@ -58,6 +58,7 @@
           <Property Name="LabTestId" Type="int" />
           <Property Name="TestDate" Type="datetime" Nullable="false" />
           <Property Name="Result" Type="nvarchar" MaxLength="100" />
+          <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
@@ -453,6 +454,7 @@
           <Property Name="LabTestId" Type="Int32" />
           <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Result" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LabTests" Relationship="MedAppDBModel.FK__PatientLa__LabTe__34C8D9D1" FromRole="PatientLabTests" ToRole="LabTests" />
           <NavigationProperty Name="Patients" Relationship="MedAppDBModel.FK__PatientLa__Patie__33D4B598" FromRole="PatientLabTests" ToRole="Patients" />
         </EntityType>
@@ -727,6 +729,7 @@
           <EntitySetMapping Name="PatientLabTests">
             <EntityTypeMapping TypeName="MedAppDBModel.PatientLabTests">
               <MappingFragment StoreEntitySet="PatientLabTests">
+                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="TestDate" ColumnName="TestDate" />
                 <ScalarProperty Name="LabTestId" ColumnName="LabTestId" />

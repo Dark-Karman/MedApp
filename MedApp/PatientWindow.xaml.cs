@@ -30,6 +30,8 @@ namespace MedApp
             appointmentsFrame.Content = new PatientAppointmentsPage(userSesion);
             findDoctorFrame.Content = new FindDoctorPage(userSesion, patientAppointmentsPage);
             diseasesFrame.Content = new DiseasesPage(userSesion);
+            prescriptionsFrame.Content = new PrescriptionsPage(userSesion);
+            labTestsFrame.Content = new LabTestPage(userSesion);
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)

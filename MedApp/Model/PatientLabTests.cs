@@ -19,6 +19,7 @@ namespace MedApp.Model
         public Nullable<int> LabTestId { get; set; }
         public System.DateTime TestDate { get; set; }
         public string Result { get; set; }
+        public string Note { get; set; }
     
         public virtual LabTests LabTests { get; set; }
         public virtual Patients Patients { get; set; }
