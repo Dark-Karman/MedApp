@@ -25,6 +25,7 @@ namespace MedApp
             InitializeComponent();
         }
 
+
         private void registerButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(firstNameTextBox.Text) ||
@@ -61,14 +62,23 @@ namespace MedApp
             Conection.entities.Patients.Add(newPatients);
             Conection.entities.SaveChanges();
 
-
-
             MessageBox.Show("Регистрация успешно завершена!", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
 
             // Возвращаемся к окну авторизации
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+        private void rulesCb_Click(object sender, RoutedEventArgs e)
+        {
+            if (rulesCb.IsChecked == true)
+            {
+                registerButton.IsEnabled = true;
+            }
+            else
+            {
+                registerButton.IsEnabled = false;
+            }
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
@@ -77,5 +87,12 @@ namespace MedApp
             main.Show();
             Close();
         }
+
+        private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
+        {
+            RulesWindow rules = new RulesWindow();   
+            rules.Show();
+        }
+
     }
 }

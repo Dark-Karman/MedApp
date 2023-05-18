@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
 
-        Title="Регистрация" Height="450" Width="350" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/asets/free-icon-medical-record-967173.png">
+        Title="Регистрация" Height="500" Width="350" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/asets/free-icon-medical-record-967173.png">
 
     <Grid  Background="DarkGreen">
         <Image gif:AnimationBehavior.SourceUri="/asets/ezgif-2-df9af7a089.gif" Stretch="Fill"/>
@@ -38,7 +38,13 @@
                     <PasswordBox x:Name="passwordBox"  Width="300"/>
                 </GroupBox>
 
-                <Button x:Name="registerButton" Content="Зарегистрироваться" Width="230" Height="35" Margin="0 10" Click="registerButton_Click" Cursor="Hand"/>
+                <CheckBox Click="rulesCb_Click" x:Name="rulesCb" Margin="10" Foreground="White" Content="Я солгласен с условиями пользовательского соглашения"/>
+
+                <Button x:Name="registerButton" Content="Зарегистрироваться" Width="230" Height="35" Margin="0 10" Click="registerButton_Click" Cursor="Hand" IsEnabled="False"/>
+
+                <Label HorizontalAlignment="Center">
+                    <Hyperlink Click="Hyperlink_Click_1">Пользовательское соглашение</Hyperlink>
+                </Label>
 
                 <Label HorizontalAlignment="Center">
                     <Hyperlink Click="Hyperlink_Click">Назад</Hyperlink>

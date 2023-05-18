@@ -35,5 +35,7 @@
             </TabItem>
 
         </TabControl>
+
+        <Button x:Name="exitBtn" Click="Logout_Click" Content="ВЫЙТИ" Width="90" Background="darkred" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Cursor="Hand"/>
     </Grid>
 </Window>
