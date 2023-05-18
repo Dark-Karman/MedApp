@@ -20,10 +20,15 @@ namespace MedApp
     /// </summary>
     public partial class AppointmentDetailsWindow : Window
     {
-        public AppointmentDetailsWindow(Appointments selectedAppointments)
+        public AppointmentDetailsWindow(Appointments selectedAppointments, Users userSesion)
         {
             InitializeComponent();
             SelectedAppointments = selectedAppointments;
+            if (userSesion.Role == "Patient")
+            {
+                completeBtn.Visibility = Visibility.Collapsed;
+            }
+            else completeBtn.Visibility = Visibility.Visible;
         }
 
 
@@ -83,6 +88,11 @@ namespace MedApp
         private void SaveDateTimeBtn_Click(object sender, RoutedEventArgs e)
         {
             UpdateAppointmentDateTime();
+        }
+
+        private void completeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateAppointmentStatus(3);
         }
     }
 }

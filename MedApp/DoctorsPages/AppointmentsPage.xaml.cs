@@ -14,24 +14,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MedApp.Pages
+namespace MedApp.DoctorsPages
 {
     /// <summary>
-    /// Логика взаимодействия для PatientAppointmentsPage.xaml
+    /// Логика взаимодействия для AppointmentsPage.xaml
     /// </summary>
-    public partial class PatientAppointmentsPage : Page
+    public partial class AppointmentsPage : Page
     {
         private readonly Users _userSession;
-
-        public PatientAppointmentsPage()
+        public AppointmentsPage()
         {
             InitializeComponent();
             Loaded += Page_Loaded;
         }
 
-        public PatientAppointmentsPage(Users userSession) : this()
+        public AppointmentsPage(Users usersSesion) : this()
         {
-            _userSession = userSession;
+            _userSession = usersSesion;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -43,8 +42,8 @@ namespace MedApp.Pages
         {
             if (_userSession != null)
             {
-                var patientSessionId = Conection.entities.Patients.FirstOrDefault(f => f.UserId == _userSession.Id).Id;
-                AppointmentsLv.ItemsSource = Conection.entities.Appointments.Where(i => i.PatientId == patientSessionId).ToList();
+                var docSessionId = Conection.entities.Doctors.FirstOrDefault(f => f.UserId == _userSession.Id).Id;
+                AppointmentsLv.ItemsSource = Conection.entities.Appointments.Where(i => i.DoctorId == docSessionId).ToList();
             }
         }
 

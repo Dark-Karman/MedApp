@@ -20,8 +20,10 @@ namespace MedApp.Model
         public System.DateTime TestDate { get; set; }
         public string Result { get; set; }
         public string Note { get; set; }
+        public int StatusId { get; set; }
     
         public virtual LabTests LabTests { get; set; }
         public virtual Patients Patients { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

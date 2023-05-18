@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MedApp.DoctorsPages;
 using MedApp.Model;
 
 namespace MedApp
@@ -23,8 +24,20 @@ namespace MedApp
         public DoctorWindow(Users userSesion)
         {
             InitializeComponent();
-            PatientsListView.ItemsSource = Conection.entities.Users.Where(i => i.Id == userSesion.Id).ToList();
-            MessageBox.Show(userSesion.Email.ToString());
+            MessageBox.Show($"Здравствуйте, {userSesion.FirstName} {userSesion.LastName}!", "Приветствие", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            appointmentsFrame.Content = new AppointmentsPage(userSesion);
+            diseaseFrame.Content = new DiseasePage(userSesion);
+            prscriptionFrame.Content = new PrescriptionPage(userSesion);
+            labFrame.Content = new LabPage(userSesion);
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            // Закрываем текущее окно и открываем окно авторизации
+            MainWindow loginWindow = new MainWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

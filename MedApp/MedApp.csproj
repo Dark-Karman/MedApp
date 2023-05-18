@@ -88,6 +88,18 @@
     <Compile Include="DateTimePicker.xaml.cs">
       <DependentUpon>DateTimePicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorsPages\AppointmentsPage.xaml.cs">
+      <DependentUpon>AppointmentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsPages\DiseasePage.xaml.cs">
+      <DependentUpon>DiseasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsPages\LabPage.xaml.cs">
+      <DependentUpon>LabPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsPages\PrescriptionPage.xaml.cs">
+      <DependentUpon>PrescriptionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FindDoctorDetailsWindow.xaml.cs">
       <DependentUpon>FindDoctorDetailsWindow.xaml</DependentUpon>
     </Compile>
@@ -129,6 +141,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DateTimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorsPages\AppointmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorsPages\DiseasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorsPages\LabPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorsPages\PrescriptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

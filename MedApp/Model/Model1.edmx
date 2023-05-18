@@ -59,6 +59,7 @@
           <Property Name="TestDate" Type="datetime" Nullable="false" />
           <Property Name="Result" Type="nvarchar" MaxLength="100" />
           <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
@@ -250,6 +251,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PatientLabTests_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="PatientLabTests" Type="Self.PatientLabTests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PatientLabTests">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Patients_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
@@ -319,6 +332,10 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Doctors" EntitySet="Doctors" />
           </AssociationSet>
+          <AssociationSet Name="FK_PatientLabTests_Status" Association="Self.FK_PatientLabTests_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="PatientLabTests" EntitySet="PatientLabTests" />
+          </AssociationSet>
           <AssociationSet Name="FK_Patients_Users" Association="Self.FK_Patients_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Patients" EntitySet="Patients" />
@@ -379,6 +396,10 @@
           </AssociationSet>
           <AssociationSet Name="FK__PatientLa__Patie__33D4B598" Association="MedAppDBModel.FK__PatientLa__Patie__33D4B598">
             <End Role="Patients" EntitySet="Patients" />
+            <End Role="PatientLabTests" EntitySet="PatientLabTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientLabTests_Status" Association="MedAppDBModel.FK_PatientLabTests_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="PatientLabTests" EntitySet="PatientLabTests" />
           </AssociationSet>
           <AssociationSet Name="FK__Prescript__Patie__38996AB5" Association="MedAppDBModel.FK__Prescript__Patie__38996AB5">
@@ -455,8 +476,10 @@
           <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Result" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="LabTests" Relationship="MedAppDBModel.FK__PatientLa__LabTe__34C8D9D1" FromRole="PatientLabTests" ToRole="LabTests" />
           <NavigationProperty Name="Patients" Relationship="MedAppDBModel.FK__PatientLa__Patie__33D4B598" FromRole="PatientLabTests" ToRole="Patients" />
+          <NavigationProperty Name="Status" Relationship="MedAppDBModel.FK_PatientLabTests_Status" FromRole="PatientLabTests" ToRole="Status" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
@@ -502,6 +525,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Appointments" Relationship="MedAppDBModel.FK_Appointments_Status" FromRole="Status" ToRole="Appointments" />
+          <NavigationProperty Name="PatientLabTests" Relationship="MedAppDBModel.FK_PatientLabTests_Status" FromRole="Status" ToRole="PatientLabTests" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -647,6 +671,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PatientLabTests_Status">
+          <End Type="MedAppDBModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="MedAppDBModel.PatientLabTests" Role="PatientLabTests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PatientLabTests">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Prescript__Patie__38996AB5">
           <End Type="MedAppDBModel.Patients" Role="Patients" Multiplicity="0..1" />
           <End Type="MedAppDBModel.Prescriptions" Role="Prescriptions" Multiplicity="*" />
@@ -729,6 +765,7 @@
           <EntitySetMapping Name="PatientLabTests">
             <EntityTypeMapping TypeName="MedAppDBModel.PatientLabTests">
               <MappingFragment StoreEntitySet="PatientLabTests">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="TestDate" ColumnName="TestDate" />

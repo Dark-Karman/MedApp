@@ -18,6 +18,7 @@ namespace MedApp.Model
         public Status()
         {
             this.Appointments = new HashSet<Appointments>();
+            this.PatientLabTests = new HashSet<PatientLabTests>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace MedApp.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointments> Appointments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PatientLabTests> PatientLabTests { get; set; }
     }
 }

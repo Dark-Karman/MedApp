@@ -31,6 +31,7 @@
                         <GridViewColumn Header="Название" DisplayMemberBinding="{Binding LabTests.Name}"/>
                         <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding TestDate, StringFormat=dd.MM.yyyy}"/>
                         <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result, StringFormat=dd.MM.yyyy}"/>
+                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status.name}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -47,7 +48,7 @@
                 </GroupBox>
 
                 <GroupBox Header="Коментарий врача" Margin="20" Grid.Row="1" Foreground="White" Style="{x:Null}">
-                    <TextBlock Text="Здесь должно быть коментарий врача" Margin="10" TextWrapping="Wrap" x:Name="noteTb"/>
+                    <TextBlock Text="Здесь должен быть коментарий врача" Margin="10" TextWrapping="Wrap" x:Name="noteTb"/>
                 </GroupBox>
             </Grid>
         </Grid>

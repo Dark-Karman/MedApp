@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedApp"
         mc:Ignorable="d"
-        Title="Детализация" Height="200" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/asets/free-icon-medical-record-967173.png">
+        Title="Детализация" Height="200" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/asets/free-icon-medical-record-967173.png">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/asets/tekstura-green.jpg" Stretch="UniformToFill"/>
@@ -34,6 +34,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
             <Button x:Name="cancelBtn" Click="CancelBtn_Click" Content="Отменить" Margin="10" Padding="10"/>
             <Button x:Name="addBtn" Click="AddBtn_Click" Content="Запланировать" Margin="10" Padding="10"/>
+            <Button x:Name="completeBtn" Click="completeBtn_Click" Content="Завершить" Margin="10" Padding="10" Visibility="Collapsed"/>
         </StackPanel>
     </Grid>
 </Window>

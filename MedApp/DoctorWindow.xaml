@@ -5,33 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedApp"
         mc:Ignorable="d"
-        Title="DoctorWindow" Height="450" Width="800">
+        Title="Главное окно врача" Height="450" Width="800" Icon="/asets/free-icon-medical-record-967173.png" WindowState="Maximized">
     <Grid>
         <TabControl>
-            <TabItem Header="Пациенты">
-                <ListView x:Name="PatientsListView">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Fuck" DisplayMemberBinding="{Binding Email}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+            <TabItem Header="Записи на приём">
+                <Frame x:Name="appointmentsFrame"/>
             </TabItem>
-            <TabItem Header="Приемы">
-                <ListView x:Name="AppointmentsListView">
-                    <!-- Здесь будет отображаться список назначенных приемов -->
-                </ListView>
+            <TabItem Header="Поставить диагноз">
+                <Frame x:Name="diseaseFrame"/>
             </TabItem>
-            <TabItem Header="Рецепты">
-                <ListView x:Name="PrescriptionsListView">
-                    <!-- Здесь будет отображаться список выписанных рецептов -->
-                </ListView>
+            <TabItem Header="Выписать рецепт">
+                <Frame x:Name="prscriptionFrame"/>
             </TabItem>
             <TabItem Header="Лабораторные тесты">
-                <ListView x:Name="LabTestsListView">
-                    <!-- Здесь будет отображаться список результатов лабораторных тестов -->
-                </ListView>
+                <Frame x:Name="labFrame"/>
             </TabItem>
         </TabControl>
+
+        <Button x:Name="exitBtn" Click="Logout_Click" Content="ВЫЙТИ" Width="90" Background="darkred" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Cursor="Hand"/>
+
     </Grid>
 </Window>
