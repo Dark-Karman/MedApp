@@ -39,7 +39,9 @@ namespace MedApp.DoctorsPages
             if (_userSession != null)
             {
                 var docSessionId = Conection.entities.Doctors.FirstOrDefault(f => f.UserId == _userSession.Id).Id;
+
                 labLv.ItemsSource = Conection.entities.Appointments.Where(i => i.DoctorId == docSessionId & i.StatusId == 3).ToList();
+                editLabLv.ItemsSource = Conection.entities.PatientLabTests.Where(i => i.DoctorId == docSessionId).ToList();
             }
         }
 
@@ -52,7 +54,6 @@ namespace MedApp.DoctorsPages
         {
             var selectedLabTest = labComB.SelectedItem as LabTests;
 
-            // Если заболевание не было выбрано, то не происходит добавление
             if (selectedLabTest == null)
             {
                 MessageBox.Show("Пожалуйста, выберите лабораторное тестирование");
@@ -61,48 +62,93 @@ namespace MedApp.DoctorsPages
 
             var selectedPatientAppointment = labLv.SelectedItem as Appointments;
 
-            // Если запись о приеме пациента не была выбрана, то не происходит добавление
             if (selectedPatientAppointment == null)
             {
                 MessageBox.Show("Пожалуйста, выберите пациента");
                 return;
             }
 
-            // Если дата начала или окончания не выбрана, то не происходит добавление
-            if (startDP.SelectedDate == null)
+            if (startDP.Value == null)
             {
-                MessageBox.Show("Пожалуйста, выберите дату");
+                MessageBox.Show("Пожалуйста, выберите дату и время");
                 return;
             }
 
-            // Создание новой записи о заболевании для пациента
+            if (startDP.Value.Value.TimeOfDay == TimeSpan.Zero)
+            {
+                MessageBox.Show("Пожалуйста, выберите время");
+                return;
+            }
+
+            var docSessionId = Conection.entities.Doctors.FirstOrDefault(f => f.UserId == _userSession.Id).Id;
             PatientLabTests labTest = new PatientLabTests()
             {
                 PatientId = selectedPatientAppointment.PatientId,
                 LabTestId = selectedLabTest.Id,
-                TestDate = startDP.SelectedDate.Value,
+                TestDate = startDP.Value.Value,
+                DoctorId = docSessionId,
                 StatusId = 1
             };
 
-            // Добавление новой записи в таблицу PatientDiseases
             Conection.entities.PatientLabTests.Add(labTest);
             Conection.entities.SaveChanges();
 
             MessageBox.Show("Лабораторное тестирование успешно назначено пациенту");
             labComB.Text = "";
-            startDP.Text = "";
+            startDP.Value = null;
+            UpdateAppointmentsList();
         }
 
         private void goToEditMod_Click(object sender, RoutedEventArgs e)
         {
             addGridPreset.Visibility = Visibility.Collapsed;
             editGridPreset.Visibility = Visibility.Visible;
+            UpdateAppointmentsList();
         }
 
         private void goToAddMod_Click(object sender, RoutedEventArgs e)
         {
             addGridPreset.Visibility = Visibility.Visible;
             editGridPreset.Visibility = Visibility.Collapsed;
+            UpdateAppointmentsList();
+        }
+
+        private void editBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedResultObj = resultComB.SelectedItem as ComboBoxItem;
+            if (selectedResultObj == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите результат тестирование");
+                return;
+            }
+            string selectedResult = selectedResultObj.Content.ToString();
+
+            var selectedLabTest = editLabLv.SelectedItem as PatientLabTests;
+            if (selectedLabTest == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите пациента");
+                return;
+            }
+
+            PatientLabTests editString = Conection.entities.PatientLabTests.FirstOrDefault(i => i.Id == selectedLabTest.Id);
+
+            if (editString != null)
+            {
+                editString.Result = selectedResult;
+                editString.StatusId = 3; 
+                editString.Note = noteTb.Text;
+
+                Conection.entities.SaveChanges();
+
+                MessageBox.Show("Тест успешно обновлен");
+                resultComB.Text = "";
+                noteTb.Text = "";
+                UpdateAppointmentsList();
+            }
+            else
+            {
+                MessageBox.Show("Выбранный тест не найден");
+            }
         }
     }
 }

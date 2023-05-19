@@ -19,6 +19,7 @@ namespace MedApp.Model
         {
             this.Appointments = new HashSet<Appointments>();
             this.Prescriptions = new HashSet<Prescriptions>();
+            this.PatientLabTests = new HashSet<PatientLabTests>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,7 @@ namespace MedApp.Model
         public virtual ICollection<Prescriptions> Prescriptions { get; set; }
         public virtual Specialization Specialization { get; set; }
         public virtual Users Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PatientLabTests> PatientLabTests { get; set; }
     }
 }

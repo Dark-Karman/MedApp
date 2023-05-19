@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MedApp.DoctorsPages"
+      xmlns:local="clr-namespace:MedApp"
       xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif" xmlns:local1="clr-namespace:MedApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -30,7 +30,6 @@
                         <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Patients.Users.FirstName}"/>
                         <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Patients.Users.LastName}"/>
                         <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding AppointmentDate, StringFormat=dd.MM.yyyy hh:mm}"/>
-                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status.name}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -47,8 +46,8 @@
                     </ComboBox>
                 </GroupBox>
 
-                <GroupBox Header="Дата начала курса" Width="300">
-                    <DatePicker Name="startDP"/>
+                <GroupBox Header="Дата и время тестирования" Width="300">
+                    <local:DateTimePicker x:Name="startDP" HorizontalAlignment="Center"/>
                 </GroupBox>
 
                 <Button x:Name="addBtn" Click="addBtn_Click" Width="300" Content="Назначить тестирование"/>
@@ -67,6 +66,36 @@
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
+
+            <ListView x:Name="editLabLv" Grid.Column="0" Grid.Row="1" Width="600">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Patients.Users.FirstName}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Patients.Users.LastName}"/>
+                        <GridViewColumn Header="Название тестирования" DisplayMemberBinding="{Binding LabTests.Name}"/>
+                        <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding TestDate, StringFormat=dd.MM.yyyy hh:mm}"/>
+                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status.name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Margin="10 0" Grid.Row="1" Grid.Column="1">
+
+                <GroupBox Header="Результат тестирования">
+                    <ComboBox x:Name="resultComB">
+                        <ComboBoxItem Content="Норма"/>
+                        <ComboBoxItem Content="Отклонение"/>
+                        <ComboBoxItem Content="Требуется повторное тестирование"/>
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Height="100" Header="Комментарий" Margin="10" FontSize="14" FontWeight="Bold" Foreground="White" Style="{x:Null}">
+                    <TextBox x:Name="noteTb" TextWrapping="Wrap" Style="{x:Null}" Background="Transparent" Foreground="White"/>
+                </GroupBox>
+                
+                <Button x:Name="editBtn" Click="editBtn_Click" Width="300" Content="Добавить результат"/>
+
+            </StackPanel>
 
             <Button x:Name="goToAddMod" Click="goToAddMod_Click" Content="Добавить" Width="160" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Cursor="Hand"/>
         </Grid>

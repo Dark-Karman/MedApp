@@ -35,7 +35,7 @@ namespace MedApp.Pages
             if (selectedItem != null)
             {
                 descriptionTb.Text = Conection.entities.LabTests.FirstOrDefault(i => i.Id == selectedItem.LabTestId).Description;
-                noteTb.Text = Conection.entities.PatientLabTests.FirstOrDefault(i => i.Id == selectedItem.LabTestId).Note;
+                noteTb.Text = selectedItem.Note;
             }
             else
             {
