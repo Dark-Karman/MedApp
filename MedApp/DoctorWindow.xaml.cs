@@ -24,7 +24,8 @@ namespace MedApp
         public DoctorWindow(Users userSesion)
         {
             InitializeComponent();
-            MessageBox.Show($"Здравствуйте, {userSesion.FirstName} {userSesion.LastName}!", "Приветствие", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show($"Здравствуйте, {userSesion.FirstName} {userSesion.LastName}!",
+                "Приветствие", MessageBoxButton.OK, MessageBoxImage.Information);
 
             appointmentsFrame.Content = new AppointmentsPage(userSesion);
             diseaseFrame.Content = new DiseasePage(userSesion);

@@ -42,8 +42,10 @@ namespace MedApp.DoctorsPages
         {
             if (_userSession != null)
             {
-                var docSessionId = Conection.entities.Doctors.FirstOrDefault(f => f.UserId == _userSession.Id).Id;
-                AppointmentsLv.ItemsSource = Conection.entities.Appointments.Where(i => i.DoctorId == docSessionId).ToList();
+                var docSessionId = Conection.entities.Doctors.FirstOrDefault(
+                    f => f.UserId == _userSession.Id).Id;
+                AppointmentsLv.ItemsSource = Conection.entities.Appointments.Where(
+                    i => i.DoctorId == docSessionId).ToList();
             }
         }
 
@@ -56,7 +58,8 @@ namespace MedApp.DoctorsPages
             if (selectedAppointment != null)
             {
                 // Создаем новое окно и передаем выбранный элемент в его конструктор
-                AppointmentDetailsWindow newWindow = new AppointmentDetailsWindow(selectedAppointment, _userSession);
+                AppointmentDetailsWindow newWindow = new AppointmentDetailsWindow(selectedAppointment,
+                    _userSession);
                 newWindow.ShowDialog();
                 UpdateAppointmentsList();
             }
